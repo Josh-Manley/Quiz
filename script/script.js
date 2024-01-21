@@ -17,10 +17,14 @@ let score = 0;
 let timeRemaining = 60;
 let timerInterval;
 
+function startQuiz() {
+  document.getElementById("start-btn").style.display = "none";
 
+  showQuestion();
+}
 
 function showQuestion() {
-  const questionContainer = document.getElementById("question-container");
+  const questionContainer = document.getElementById("questions-container");
   const optionsContainer = document.getElementById("options-container");
 
   questionContainer.textContent = questions[currentQuestion].question;
@@ -29,12 +33,12 @@ function showQuestion() {
   questions[currentQuestion].options.forEach((option, index) => {
     const button = document.createElement("button");
     button.textContent = option;
-    button.onclick = () => checkAnswer();
+    button.onclick = () => checkAnswer(option);
     optionsContainer.appendChild(button);
   });
 }
 
-function checkAnswer() {
+function checkAnswer(answer) {
   if (answer === questions[currentQuestion].correctAnswer) {
     score++;
     document.getElementById("result-text").innerHTML = "correct"
