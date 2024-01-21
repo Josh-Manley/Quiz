@@ -29,6 +29,25 @@ function showQuestion() {
   questions[currentQuestion].options.forEach((option, index) => {
     const button = document.createElement("button");
     button.textContent = option;
-    button.onclick = () => 
-  })
+    button.onclick = () => checkAnswer();
+    optionsContainer.appendChild(button);
+  });
+}
+
+function checkAnswer() {
+  if (answer === questions[currentQuestion].correctAnswer) {
+    score++;
+    document.getElementById("result-text").innerHTML = "correct"
+    document.getElementById('score').innerHTML = `Score: ${score}`;
+  } else {
+    timeRemaining -=10; // Deduct 10 seconds for incorrect answer
+    document.getElementById("result-text").innerHTML = "incorrect"
+  }
+
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    showQuestion();
+  } else {
+    endQuiz();
+  }
 }
