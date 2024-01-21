@@ -10,4 +10,25 @@ const questions = [
     options: ["name", "Bob"],
     correctAnswer: "Bob"
   }
-]
+];
+
+let currentQuestion = 0;
+let score = 0;
+let timeRemaining = 60;
+let timerInterval;
+
+
+
+function showQuestion() {
+  const questionContainer = document.getElementById("question-container");
+  const optionsContainer = document.getElementById("options-container");
+
+  questionContainer.textContent = questions[currentQuestion].question;
+  optionsContainer.innerHTML = "";
+
+  questions[currentQuestion].options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.onclick = () => 
+  })
+}
