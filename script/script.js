@@ -85,27 +85,37 @@ function endQuiz() {
 }
   
   
-  function updateHighestScores() {
-      highscores.push({ playerName: playerName, score: score });
-      highscores.sort(function(a,b) {
-          return b.score - a.score;
-      });
-  }
-  
-  function displayHighScores() {
-      playerName = playerNameInput.value;
+function updateHighestScores() {
+  highscores.push({ playerName: playerName, score: score });
+  highscores.sort(function(a, b) {
+    return b.score - a.score;
+  });
 
-      
-      let highScoreContainer = document.getElementById("high-score-container");
-      highScoreContainer.style.display = "block";
-      let highScore = document.getElementById("high-score-ul");
-      // document.getElementById("quiz-container").style.display = "none";
-      const listItem = document.createElement("li")
-      highscores.forEach(function(entry) {
-          listItem.innerHTML = '<th>' + (entry.playerName || 'Your-Name-Go-Here') + '</td><td>' + entry.score + '</td>';
-          highScore.appendChild(listItem);
-      });
+  // Store highscores in local storage
+  localStorage.setItem('highscores', JSON.stringify(highscores));
+}
+
+function displayHighScores() {
+  playerName = playerNameInput.value;
+
+  let highScoreContainer = document.getElementById("high-score-container");
+  highScoreContainer.style.display = "block";
+  let highScore = document.getElementById("high-score-ul");
+
+  // Retrieve highscores from local storage
+  let storedHighscores = localStorage.getItem('highscores');
+  if (storedHighscores) {
+    highscores = JSON.parse(storedHighscores);
+
+    const listItem = document.createElement("li");
+  
+    highscores.forEach(function() {
+      listItem.innerHTML =  `${playerName}  ${score} `;
+      highScore.appendChild(listItem);
+    });
   }
+}
+
   
 
 
