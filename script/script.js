@@ -41,12 +41,14 @@ function showQuestion() {
 
 function checkAnswer(answer) {
   if (answer === questions[currentQuestion].correctAnswer) {
-    score++;
+    score+=5;
     document.getElementById("result-text").innerHTML = "correct"
     document.getElementById('score').innerHTML = `Score: ${score}`;
   } else {
+    score-=3;
     timeRemaining -=10; // Deduct 10 seconds for incorrect answer
     document.getElementById("result-text").innerHTML = "incorrect"
+    document.getElementById('score').innerHTML = `Score: ${score}`;
   }
 
   currentQuestion++;
@@ -66,4 +68,11 @@ function startTimer() {
       timeRemaining--;
     }
   }, 1000);
+}
+
+function endQuiz() {
+  clearInterval(timerInterval);
+
+  document.getElementById("game-over").style.display = "block";
+  document.getElementById("active-quiz").style.display = "none";
 }
