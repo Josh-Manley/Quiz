@@ -23,6 +23,8 @@ let playerName = '';
 
 let playerNameInput = document.getElementById("initials");
 
+
+
 function startQuiz() {
   document.getElementById("start-btn").style.display = "none";
 
@@ -84,8 +86,9 @@ function endQuiz() {
   updateHighestScores();
 }
   
-  
 function updateHighestScores() {
+  let playerName = playerNameInput.value;
+
   highscores.push({ playerName: playerName, score: score });
   highscores.sort(function(a, b) {
     return b.score - a.score;
@@ -96,7 +99,7 @@ function updateHighestScores() {
 }
 
 function displayHighScores() {
-  playerName = playerNameInput.value;
+  let playerName = playerNameInput.value;
 
   let highScoreContainer = document.getElementById("high-score-container");
   highScoreContainer.style.display = "block";
@@ -107,19 +110,14 @@ function displayHighScores() {
   if (storedHighscores) {
     highscores = JSON.parse(storedHighscores);
 
-    const listItem = document.createElement("li");
-  
+    // Display all highscores
     highscores.forEach(function() {
-      listItem.innerHTML =  `${playerName}  ${score} `;
+      const listItem = document.createElement("li");
+      listItem.innerHTML = `${playerName} ${score}`;
       highScore.appendChild(listItem);
     });
   }
+  console.log(highscores);
 }
-
-  
-
-
-
-
 
 
