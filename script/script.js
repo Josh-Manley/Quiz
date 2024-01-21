@@ -21,6 +21,7 @@ function startQuiz() {
   document.getElementById("start-btn").style.display = "none";
 
   showQuestion();
+  startTimer();
 }
 
 function showQuestion() {
@@ -54,4 +55,15 @@ function checkAnswer(answer) {
   } else {
     endQuiz();
   }
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    document.getElementById("time").textContent = timeRemaining;
+    if (timeRemaining <= 0) {
+      endQuiz();
+    } else {
+      timeRemaining--;
+    }
+  }, 1000);
 }
