@@ -27,7 +27,13 @@ let playerNameInput = document.getElementById("initials");
 
 function startQuiz() {
   document.getElementById("start-btn").style.display = "none";
-
+  
+  var highScore = localStorage.getItem('highscores', JSON.stringify(highscores)) || {
+    score: 0
+  }; 
+  for(i = 0; i < highScore.length; i++) {
+    highscores.push(highScore[i]);
+  } 
   showQuestion();
   startTimer();
 }
@@ -83,7 +89,7 @@ function endQuiz() {
 
   document.getElementById("game-over").style.display = "block";
   document.getElementById("active-quiz").style.display = "none";
-  updateHighestScores();
+  
 }
   
 function updateHighestScores() {
@@ -99,6 +105,7 @@ function updateHighestScores() {
 }
 
 function displayHighScores() {
+  
   let playerName = playerNameInput.value;
 
   let highScoreContainer = document.getElementById("high-score-container");
@@ -110,14 +117,14 @@ function displayHighScores() {
   if (storedHighscores) {
     highscores = JSON.parse(storedHighscores);
 
-    // Display all highscores
-    highscores.forEach(function() {
+    for (i = 0; i < highscores.length; i++) {
       const listItem = document.createElement("li");
-      listItem.innerHTML = `${playerName} ${score}`;
+      listItem.innerHTML = `${highscores[i].playerName} ${highscores[i].score}`;
       highScore.appendChild(listItem);
-    });
-  }
-  console.log(highscores);
+    } 
+  console.log(highscores); 
 }
+  let currentScore = document.getElementById('current-final-score');
+  currentScore.textContent = `Current final score ${playerName}: ${score}`;
 
-
+}

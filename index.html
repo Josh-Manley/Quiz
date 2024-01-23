@@ -17,11 +17,12 @@
     <div id="result-text"></div>
     <div id="game-over" style="display: none;">
       <input type="text" id="initials" placeholder="Your Initials">
-      <button onclick="displayHighScores()">Save Score</button>
+      <button onclick="displayHighScores(), updateHighestScores()">Save Score</button>
     </div>
   </div>
+  <div id="current-final-score"></div>
   <div id="high-score-container" style="display: none;">
-    <h1>High Score</h1>
+    <h1>High Scores</h1>
     <ul id="high-score-ul"></ul>
   </div>
   <script src="script/script.js"></script>
