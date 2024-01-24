@@ -71,12 +71,12 @@ function showQuestion() {
 function checkAnswer(answer) {
   if (answer === questions[currentQuestion].correctAnswer) {
     score+=5;
-    document.getElementById("result-text").innerHTML = "correct"
+    document.getElementById("result-text").innerHTML = "Correct!"
     document.getElementById('score').innerHTML = `Score: ${score}`;
   } else {
     score-=3;
     timeRemaining -=10; // Deduct 10 seconds for incorrect answer
-    document.getElementById("result-text").innerHTML = "incorrect"
+    document.getElementById("result-text").innerHTML = "Incorrect!"
     document.getElementById('score').innerHTML = `Score: ${score}`;
   }
 
