@@ -1,3 +1,4 @@
+// array of quiz questions
 const questions = [
   {
     question: "Which function is used to add a new element at the end of an array in JavaScript?",
@@ -8,7 +9,7 @@ const questions = [
   {
     question: "Which function in JavaScript can you use to generate random numbers?",
     options: ["Math.dice()", "Math.random()", "Math.number()"],
-    correctAnswer: "Bob"
+    correctAnswer: "Math.random()"
   },
 
   {
@@ -36,6 +37,7 @@ let playerNameInput = document.getElementById("initials");
 let backBtn = document.getElementById('back-btn')
 backBtn.style.display = "none";
 
+// function to start quiz
 function startQuiz() {
   document.getElementById("start-btn").style.display = "none";
   
@@ -48,6 +50,7 @@ function startQuiz() {
   showQuestion();
   startTimer();
 }
+
 
 function showQuestion() {
   const questionContainer = document.getElementById("questions-container");
