@@ -15,4 +15,5 @@ A javascript quiz with a few trivia questions built with javascript and minimal 
 ## Authors and acknowledgement
 Created by Josh Manley with little help from chatgpt
 
-
+## License 
+license info is in the license file
