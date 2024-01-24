@@ -1,16 +1,26 @@
-
-
 const questions = [
   {
-    question: "What is the capital of Utah?",
-    options: ["Salt Lake", "Las Vegas", "Berlin"],
-    correctAnswer: "Salt Lake"
+    question: "Which function is used to add a new element at the end of an array in JavaScript?",
+    options: ["push()", "pop()", "unshift()", "shift()"],
+    correctAnswer: "push()"
   },
 
   {
-    question: "What is the name?",
-    options: ["name", "Bob"],
+    question: "Which function in JavaScript can you use to generate random numbers?",
+    options: ["Math.dice()", "Math.random()", "Math.number()"],
     correctAnswer: "Bob"
+  },
+
+  {
+    question: "What does javascript primarily add to a webpage?",
+    options: ["Style", "Structure", "Images", "Interactivity"],
+    correctAnswer: "Interactivity"
+  },
+
+  {
+    question: "What is the correct way to comment a single line in JavaScript?",
+    options: ["// comment", "<!--comment--!>", "$comment$", "%comment%"],
+    correctAnswer: "// comment"
   }
 ];
 
@@ -23,7 +33,8 @@ let playerName = '';
 
 let playerNameInput = document.getElementById("initials");
 
-
+let backBtn = document.getElementById('back-btn')
+backBtn.style.display = "none";
 
 function startQuiz() {
   document.getElementById("start-btn").style.display = "none";
@@ -42,6 +53,7 @@ function showQuestion() {
   const questionContainer = document.getElementById("questions-container");
   const optionsContainer = document.getElementById("options-container");
 
+  
   questionContainer.textContent = questions[currentQuestion].question;
   optionsContainer.innerHTML = "";
 
@@ -89,7 +101,7 @@ function endQuiz() {
 
   document.getElementById("game-over").style.display = "block";
   document.getElementById("active-quiz").style.display = "none";
-  
+  currentQuestion = 0;
 }
   
 function updateHighestScores() {
@@ -111,6 +123,8 @@ function displayHighScores() {
   let highScoreContainer = document.getElementById("high-score-container");
   highScoreContainer.style.display = "block";
   let highScore = document.getElementById("high-score-ul");
+  document.getElementById('save-score-btn').style.display = "none";
+  backBtn.style.display = "block";
 
   // Retrieve highscores from local storage
   let storedHighscores = localStorage.getItem('highscores');
