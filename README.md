@@ -3,6 +3,9 @@
 ## Description
 A javascript quiz with a few trivia questions built with javascript and minimal HTML 
 
+## Link to site
+https://josh-manley.github.io/Quiz/
+
 ## Visuals
 
 <img width="1710" alt="Screenshot 2024-01-23 at 7 12 14 PM" src="https://github.com/Josh-Manley/Quiz/assets/150214190/fc892a25-b358-4e36-b142-3853bef13baf">
