@@ -11,3 +11,8 @@ A javascript quiz with a few trivia questions built with javascript and minimal 
 
 
 <img width="1710" alt="Screenshot 2024-01-23 at 7 13 08 PM" src="https://github.com/Josh-Manley/Quiz/assets/150214190/bc3e7e52-cb53-47f9-8f3e-d9b7ab6d273d">
+
+## Authors and acknowledgement
+Created by Josh Manley with little help from chatgpt
+
+
